@@ -193,23 +193,23 @@
 
 .save {
   display: flex;
-  width: 350px;
+  width: 344px;
   max-height: 55px;
   background-color: var(--bgk);
-  gap: 0;
+  gap: 4px;
   padding: 15px 17px 15px 17px;
   border: 2px solid var(--text-color);
   align-self: center;
   justify-content: center;
+  margin-top: -2px;
 }
 
 .save-picture {
-  margin-left: 4px;
-  margin-right: 3px;
   width: 21px;
   height: 21px;
+  margin-left: 3px;
 }
 
 .save-button {
-  margin-bottom: 3px;
+  line-height: 23px;
 }
