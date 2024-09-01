@@ -9,6 +9,7 @@
     --bgi: repeating-linear-gradient(to right, #d3d3d3 0px 2px, rgb(211 211 211 / 0) 2px 4px),
     repeating-linear-gradient(to bottom, #e7e7e7 0px 2px, #1a1a1a 2px 4px);  
     --text-color: #000000;
+    --label-border: #fff;
 }
 
 :root.theme-light {
@@ -20,6 +21,7 @@
     --bgi: repeating-linear-gradient(to right, #d3d3d3 0px 2px, rgb(211 211 211 / 0) 2px 4px),
     repeating-linear-gradient(to bottom, #e7e7e7 0px 2px, #1a1a1a 2px 4px);  
     --text-color: #000000;
+    --label-border: #fff;
 }
 
 :root.theme-dark {
@@ -31,6 +33,7 @@
     --bgi: repeating-linear-gradient(to right, #000 0px 2px, rgb(0 0 0 / 0) 2px 4px),
     repeating-linear-gradient(to bottom, #007f0c 0px 2px, #004306 2px 4px);  
     --text-color: #00CC14;
+    --label-border: #000;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -43,6 +46,7 @@
         --bgi: repeating-linear-gradient(to right, #000 0px 2px, rgb(0 0 0 / 0) 2px 4px),
         repeating-linear-gradient(to bottom, #007f0c 0px 2px, #004306 2px 4px);  
         --text-color: #00CC14;
+        --label-border: #000;
     }
 }
 
