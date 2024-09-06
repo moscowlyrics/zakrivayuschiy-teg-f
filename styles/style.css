@@ -24,7 +24,7 @@
   padding-left: min(300px, 30vw);
   padding-right: min(300px, 30vw);
   font-family: var(--main-font);
-  font-variation-settings: 'wght' var(--font-regular-wght);
+  font-variation-settings: "wght" var(--font-regular-wght);
   color: var(--text-color);
   background-image: var(--bgi);
   background-position: center;
@@ -34,7 +34,7 @@
 
 .header {
   width: clamp(350px, 55vw, 700px);
-  padding: 136px 120.5px 25px 120.5px;
+  padding: 136px 120.5px 22px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -66,7 +66,7 @@
 .theme-menu__list {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 6px;
   font-size: 14px;
   line-height: 14px;
   margin-left: 17px;
@@ -80,12 +80,6 @@
   text-transform: uppercase;
 }
 
-.theme-menu__button:hover {
-  cursor: pointer;
-  opacity: 0.6;
-  transition: 0.3s ease;
-}
-
 .theme-menu__button::after {
   content: "";
   display: block;
@@ -93,12 +87,27 @@
   height: 2px;
   margin-top: 3px;
   background-color: var(--text-color);
-  color: var(--text-color);
+  transition: transform 0.3s;
+  transform-origin: left center;
 }
 
-.theme-menu__button:hover::after {
+.theme-menu__button:hover {
+  cursor: pointer;
+  opacity: 0.6;
+  transition: 0.3s ease;
+}
+
+.theme-menu_button:focus {
+  border: none;
+  outline: none;
+}
+
+.theme-menu__button:focus-visible {
+  opacity: 0.6;
+}
+
+.theme-menu__button:focus-visible::after {
   transform: scaleX(1);
-  transition: transform 0.3s ease-in;
 }
 
 .theme-menu__button:disabled {
@@ -108,9 +117,10 @@
 }
 
 .theme-menu__button:disabled::before {
-  content:"▶";
+  content: "▶";
   position: absolute;
   left: -14px;
+  animation: arrow-move 0.5s infinite alternate ease-in-out;
 }
 
 .content {
@@ -127,7 +137,7 @@
 
 .card-title {
   font-size: 18px;
-  font-variation-settings: 'wght' var(--font-bold-wght);
+  font-variation-settings: "wght" var(--font-bold-wght);
   line-height: 21.8px;
   padding: 5px 10px;
   padding-bottom: 5px;
@@ -147,12 +157,12 @@
   line-height: 14px;
   font-family: var(--accent-font);
   text-shadow:
-  -1px 0 var(--label-border), 
-  0 1px var(--label-border), 
-  1px 0 var(--label-border), 
-  0 -1px var(--label-border);
+    -1px 0 var(--label-border),
+    0 1px var(--label-border),
+    1px 0 var(--label-border),
+    0 -1px var(--label-border);
   mix-blend-mode: hard-light;
-  opacity: 0.6; 
+  opacity: 0.6;
   z-index: 1;
 }
 
@@ -177,7 +187,7 @@
 }
 
 .card:nth-child(4) .card-img {
-  filter: hue-rotate(25deg)
+  filter: hue-rotate(25deg);
 }
 
 .card:nth-child(5) .card-img {
@@ -193,7 +203,8 @@
 }
 
 .card:nth-child(8) .card-img {
-  filter: saturate(150%) hue-rotate(95deg) blur(2px) brightness(100%) contrast(0.5);
+  filter: saturate(150%) hue-rotate(95deg) blur(2px) brightness(100%)
+    contrast(0.5);
 }
 
 .card-description {
@@ -203,7 +214,7 @@
   padding-top: 23.5px;
   color: var(--text-color);
   font-size: 18px;
-  font-variation-settings: 'wght' var(--font-regular-wght);
+  font-variation-settings: "wght" var(--font-regular-wght);
   line-height: 21px;
   border-top: 2px solid var(--text-color);
 }
@@ -218,6 +229,7 @@
 
 .button-container {
   display: flex;
+  position: relative;
   justify-content: center;
   align-self: end;
   font-family: var(--accent-font);
@@ -228,19 +240,85 @@
 .button-like {
   display: flex;
   width: 169px;
-  gap: 4px;
+  gap: 8px;
 }
 
-.button__text {
-  padding: 11px 35px;
-  border: 2px solid var(--text-color);
-  margin-right: 8px;
+.card__icon-button {
+  display: flex;
+  align-self: center;
+  width: 41px;
+  height: 38px;
+  cursor: pointer;
+  padding: 0;
+  outline: 2px solid rgb(255 255 255 / 0);
+}
+
+.card__icon-button:focus-visible {
+  outline: 2px solid var(--text-color);
+  border: none;
+  transition: outline 0.3s ease;
+}
+
+.card__icon-button:focus {
+  border: none;
 }
 
 .like-icon {
-  width: 27px;
-  height: 24px;
-  margin-top: 5px;
+  align-self: flex-start;
+  width: 38px;
+  height: inherit;
+}
+
+.sparks {
+  opacity: 0;
+}
+
+.button__text-container {
+  display: flex;
+  position: relative;
+  padding: 11px 35px;
+  border: 2px solid var(--text-color);
+  cursor: pointer;
+}
+
+.button__text-container:focus-within,
+.save:focus-within {
+  outline: none;
+  box-shadow: 2px 2px 0 var(--text-color);
+}
+
+.button__text-container:focus,
+.save:focus {
+  outline: none;
+  border: none;
+  background-color: rgb(255 255 255 / 0);
+}
+
+.button__text-container::before,
+.save::before {
+  content: "";
+  display: flex;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  transform: scaleX(0);
+  transform-origin: left center;
+  background-color: var(--blend-color);
+  mix-blend-mode: difference;
+  cursor: pointer;
+}
+
+.button__text-container:hover::before,
+.save:hover::before {
+  transform: scaleX(1);
+  transition: transform 0.5s ease-in-out;
+}
+
+.button__text {
+  color: var(--text-color);
+  margin-right: 0;
 }
 
 .save {
@@ -248,11 +326,12 @@
   width: clamp(320px, 30vw, 340px);
   background-color: var(--bgk);
   gap: 1px;
-  padding: 15px 15px 15px 15px;
+  padding: 15px;
   padding-left: min(15px, 2vw);
   border: 2px solid var(--text-color);
   align-self: center;
   justify-content: center;
+  cursor: pointer;
 }
 
 .save-picture {
@@ -264,12 +343,12 @@
 
 @media (width <= 375px) {
   .page {
-    padding: 100px 0;
+    padding: 100px 0px;
   }
 
   .header {
     width: clamp(320px, 100%, 375px);
-    padding: 120px 14px 25px 14px;
+    padding: 120px 14px 25px;
     margin-bottom: 98px;
   }
 
@@ -278,7 +357,7 @@
   }
 
   .header__text {
-    font-size: clamp(0.875rem, 0.875rem + 0vw, 0.875rem); 
+    font-size: clamp(0.875rem, 0.875rem + 0vw, 0.875rem);
   }
 
   .theme-menu__list {
@@ -294,10 +373,10 @@
     right: 11px;
   }
 
-/* Это нужно чтоб перенеслось правильно слово "пора" в предпоследней карточке */
-  .card:nth-child(7) .description-text:nth-child(1) {     
+  /* Это нужно чтоб перенеслось правильно слово "пора" в предпоследней карточке */
+  .card:nth-child(7) .description-text:nth-child(1) {
     margin-right: 4px;
-  } 
+  }
 
   .button-like {
     gap: 6px;
