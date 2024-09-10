@@ -22,3 +22,20 @@
     }
   }
 
+  @keyframes heart-scale {
+    from {
+      scale: 1;
+    }
+    to {
+      scale: 1.5;
+    }
+  }
+
+  @keyframes sparks-fill {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }

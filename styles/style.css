@@ -43,7 +43,7 @@
   text-transform: uppercase;
   background-color: var(--bgk);
   border: 2px solid var(--text-color);
-  margin-bottom: 99px;
+  margin-bottom: 100px;
 }
 
 .header__container {
@@ -55,7 +55,7 @@
 
 .header__title {
   /* font-size: clamp(49px, 2.7104rem + 1.65vw, 4.0625rem); */
-  font-size: clamp(2.5rem, 2.0355rem + 2.2523vw, 4.0625rem);
+  font-size: clamp(2.5rem, 2.248rem + 2.5vw, 4.0625rem);
   max-width: inherit;
 }
 
@@ -127,7 +127,7 @@
   width: clamp(350px, 55vw, 700px);
   display: flex;
   flex-direction: column;
-  gap: 49px;
+  gap: 50.4px;
 }
 
 .card {
@@ -270,7 +270,7 @@
 }
 
 .like-icon:hover .main-body {
-  fill: var(--text-color);
+  fill: var(--heart-contour);
 }
 
 .like-icon:not(:hover) .main-body {
@@ -278,7 +278,7 @@
 }
 
 .like-icon:hover .core {
-  fill: var(--text-color);
+  fill: var(--heart-contour);
 }
 
 .like-icon:active .main-body {
@@ -289,12 +289,40 @@
   fill: rgb(255 0 0);
 }
 
-.heart {
+.like-icon.is-liked .heart {
+  animation: heart-scale 0.3s 0.1s 2 alternate ease-in;
+  transform-origin: center;
+}
 
+.like-icon.is-liked .contour {
+  fill: rgb(255 0 0);
+}
+
+.like-icon.is-liked .main-body {
+  transition-delay: 0.03s;
+  fill: rgb(255 0 0);
+}
+
+.like-icon.is-liked .core {
+  fill: var(--heart-contour);
+  fill: rgb(255 0 0);
+}
+
+.like-icon.is-liked .sparks {
+  animation: sparks-fill 0.3s 0.3s 2 alternate ease-in;
+  opacity: 0;
+}
+
+.like-icon:not(.is-liked) .contour {
+  transition: 0.1s linear;
+}
+
+.heart {
+  transition: fill 0.3s linear;
 }
 
 .contour {
-
+  transition: fill 0.3s 0.06s linear;
 }
 
 .main-body {
@@ -309,28 +337,19 @@
   opacity: 0;
 }
 
-.button__text-container {
+.card__like-button {
   display: flex;
   position: relative;
   padding: 11px 35px;
+  width: 130px;
   border: 2px solid var(--text-color);
   cursor: pointer;
+  color: var(--text-color);
+  margin-right: 6px;
+  justify-content: center;
 }
 
-.button__text-container:focus-within,
-.save:focus-within {
-  outline: none;
-  box-shadow: 2px 2px 0 var(--text-color);
-}
-
-.button__text-container:focus,
-.save:focus {
-  outline: none;
-  border: none;
-  background-color: rgb(255 255 255 / 0);
-}
-
-.button__text-container::before,
+.card__like-button::before,
 .save::before {
   content: "";
   display: flex;
@@ -346,10 +365,22 @@
   cursor: pointer;
 }
 
-.button__text-container:hover::before,
+.card__like-button:hover::before,
 .save:hover::before {
   transform: scaleX(1);
   transition: transform 0.5s ease-in-out;
+}
+
+.card__like-button:focus-within,
+.save:focus-within {
+  outline: none;
+  box-shadow: 2px 2px 0 var(--text-color);
+}
+
+.card__like-button:focus,
+.save:focus {
+  outline: none;
+  background-color: rgb(255 255 255 / 0);
 }
 
 .button__text {
@@ -360,10 +391,11 @@
 .save {
   display: flex;
   width: clamp(320px, 30vw, 340px);
+  margin-top: 1px;
   background-color: var(--bgk);
   gap: 1px;
   padding: 15px;
-  padding-left: min(15px, 2vw);
+  padding-left: min(15px, 1vw);
   border: 2px solid var(--text-color);
   align-self: center;
   justify-content: center;
@@ -371,6 +403,7 @@
 }
 
 .save-picture {
+  fill: var(--text-color);
   width: 21px;
   height: 21px;
   align-self: center;
@@ -384,7 +417,7 @@
 
   .header {
     width: clamp(320px, 100%, 375px);
-    padding: 120px 14px 25px;
+    padding: 120px 14px 21px;
     margin-bottom: 98px;
   }
 
@@ -402,6 +435,7 @@
 
   .content {
     width: clamp(320px, 100%, 375px);
+    gap: 49px;
   }
 
   .card-label {
@@ -414,12 +448,12 @@
     margin-right: 4px;
   }
 
+  .card__like-button {
+    margin-right: 5px;
+  }
+  
   .button-like {
     gap: 6px;
-  }
-
-  .button__text {
-    margin-right: 6px;
   }
 
   .like-icon {
@@ -431,13 +465,21 @@
     flex-direction: column;
     white-space: nowrap;
     padding: 19px;
+    padding-top: 16px;
     padding-bottom: 15px;
-    gap: 11px;
+    gap: 7px;
   }
 
   .save-picture {
-    scale: 133%;
     margin-left: 0;
+    max-width: 28px;
+    max-height: 28px;
+    width: 28px;
+    height: 28px;
+  }
+
+  .save-picture_settings {
+    scale: 133%;
   }
 
   .save-button {
