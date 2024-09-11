@@ -26,6 +26,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  justify-self: center;
   font-family: var(--accent-font);
   text-transform: uppercase;
   background-color: var(--bgk);
@@ -152,7 +153,7 @@
   z-index: 1;
 }
 
-@supports ((-webkit-text-stroke) or (text-stroke)) {
+@supports (-webkit-text-stroke: 1px) or (text-stroke: 1px) {
   .card-label {
     -webkit-text-stroke: 1px var(--label-border);
     text-stroke: 1px var(--label-border);
@@ -290,7 +291,6 @@
 }
 
 .like-icon.is-liked .core {
-  fill: var(--heart-contour);
   fill: rgb(255 0 0);
 }
 
