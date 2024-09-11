@@ -163,6 +163,7 @@
 .card-img {
   display: block;
   width: 100%;
+  object-fit: cover;
 }
 
 .card:nth-child(2) .card-img {
