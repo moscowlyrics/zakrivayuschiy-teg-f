@@ -331,10 +331,6 @@
   align-self: center;
 }
 
-.container_button-dialog {
-  padding-top: 50px;
-}
-
 .save-dialog {
   display: flex;
   flex-direction: column;
@@ -456,7 +452,7 @@
 
   .container_button-dialog {
     width: 100%;
-    padding: 48px 34.5px 100px;
+    padding: 0px 34.5px 100px;
   }
 
   .dialog__text {
