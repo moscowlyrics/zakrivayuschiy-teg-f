@@ -11,63 +11,11 @@
       #d3d3d3 0px 2px,
       rgb(211 211 211 / 0) 2px 4px
     ),
-    repeating-linear-gradient(to bottom, #e7e7e7 0px 2px, #1a1a1a 2px 4px);
+    repeating-linear-gradient(#e7e7e7 0px 2px, rgb(211 211 211 / 0) 2px 4px),
+    linear-gradient(#e7e7e7 0%, #e7e7e7 0.01%, #1a1a1a, #1a1a1a 100%);
   --text-color: #000000;
   --label-border: #fff;
   --blend-color: #fff;
   --heart-contour: #000000;
   --heart-sparks: #FF0000;
-}
-
-:root.theme-light {
-  --font-bold-wght: "700";
-  --font-regular-wght: "400";
-  --bgk: #ffffff;
-  --bgi: repeating-linear-gradient(
-      to right,
-      #d3d3d3 0px 2px,
-      rgb(211 211 211 / 0) 2px 4px
-    ),
-    repeating-linear-gradient(to bottom, #e7e7e7 0px 2px, #1a1a1a 2px 4px);
-  --text-color: #000000;
-  --label-border: #fff;
-  --blend-color: #fff;
-  --heart-contour: #000000;
-  --heart-sparks: #FF0000;
-}
-
-:root.theme-dark {
-  --font-bold-wght: "785";
-  --font-regular-wght: "465";
-  --bgk: #000000;
-  --bgi: repeating-linear-gradient(
-      to right,
-      #000 0px 2px,
-      rgb(0 0 0 / 0) 2px 4px
-    ),
-    repeating-linear-gradient(to bottom, #007f0c 0px 2px, #004306 2px 4px);
-  --text-color: #00cc14;
-  --label-border: #000;
-  --blend-color: #00cc14;
-  --heart-contour: #00cc14;
-  --heart-sparks: #FF0000;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --font-bold-wght: "785";
-    --font-regular-wght: "465";
-    --bgk: #000000;
-    --bgi: repeating-linear-gradient(
-        to right,
-        #000 0px 2px,
-        rgb(0 0 0 / 0) 2px 4px
-      ),
-      repeating-linear-gradient(to bottom, #007f0c 0px 2px, #004306 2px 4px);
-    --text-color: #00cc14;
-    --label-border: #000;
-    --blend-color: #00cc14;
-    --heart-contour: #00cc14;
-    --heart-sparks: #FF0000;
-  }
 }
