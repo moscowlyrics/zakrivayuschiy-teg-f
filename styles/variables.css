@@ -3,8 +3,8 @@
 :root {
   --main-font: "Inter Variable";
   --accent-font: "Press Start 2P";
-  --font-bold-wght: "700";
-  --font-regular-wght: "400";
+  --font-bold-wght: 700;
+  --font-regular-wght: 400;
   --bgk: #ffffff;
   --bgi: repeating-linear-gradient(
       to right,
